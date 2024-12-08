@@ -1,0 +1,16 @@
+T__0=1
+T__1=2
+T__2=3
+OPERATOR=4
+BOOLEAN=5
+AND=6
+OR=7
+NULL=8
+STRING=9
+NUMBER=10
+IDENTIFIER=11
+WS=12
+'('=1
+')'=2
+','=3
+'null'=8

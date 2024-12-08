@@ -5,29 +5,31 @@ grammar RestFilter;
 }
 
 // Parser rules
-filter  :   expr+
+filter  :   expr
         ;
 
-expr    : field op=operator value         # BinaryExpr
-        | expr op=(AND | OR) expr         # AndOrExpr
-        | '(' expr ')'                    # ParenthesesExpr
+expr    : field operator value              # BinaryExpr
+        | expr logicOperator expr           # LogicExpr
+        | '(' expr ')'                      # ParenthesesExpr
         ;
 
 field   : IDENTIFIER
         ;
 
 value   : STRING
-        | NUMBER                            
+        | NUMBER
         | BOOLEAN
         | NULL
+        | '(' value (',' value)* ')'
         ;
 
 operator: OPERATOR
         ;
 
-// Lexer rules
-OPERATOR    : [eE][qQ] | [nN][qQ] | [gG][tT] | [gG][tT][eE] | [lL][tT] | [lL][tT][eE] | [cC][sS] | [bB][gG];
+logicOperator: AND | OR;
 
+// Lexer rules
+OPERATOR    : [eE][qQ] | [nN][qQ] | [gG][tT] | [gG][tT][eE] | [lL][tT] | [lL][tT][eE] | [cC][sS] | [bB][gG] | [iI][nN] | [nN][iI];
 BOOLEAN     : 'true' | 'false' | 'TRUE' | 'FALSE';
 AND         : 'AND' | 'and';
 OR          : 'OR' | 'or';

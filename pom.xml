@@ -23,6 +23,10 @@
         <junit.version>5.10.2</junit.version>
         <lombok.version>1.18.30</lombok.version>
         <antlr.version>4.13.2</antlr.version>
+        <mybatis.version>3.5.11</mybatis.version>
+        <tkmybatis.version>3.5.3</tkmybatis.version>
+        <mysql.connector.version>8.0.31</mysql.connector.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
     </properties>
 
     <dependencies>
@@ -43,7 +47,37 @@
             <artifactId>antlr4</artifactId>
             <version>${antlr.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.11</version>
+        </dependency>
 
+        <!-- 下面依赖用于单元测试 -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+<!--            <scope>test</scope>-->
+<!--            <optional>true</optional>-->
+        </dependency>
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
+            <version>${tkmybatis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
+<!--            <scope>test</scope>-->
+<!--            <optional>true</optional>-->
+        </dependency>
     </dependencies>
 
 </project>
